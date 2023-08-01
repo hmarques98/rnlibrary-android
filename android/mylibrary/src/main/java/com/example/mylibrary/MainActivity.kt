@@ -52,7 +52,7 @@ class MeiliActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
         // the Meili React Native app index.js file.
         ReactFeatureFlags.useTurboModules = false
         reactRootView.setIsFabric(false)
-        reactRootView.startReactApplication(reactInstanceManager, "MeiliRN", initialProperties)
+        reactRootView.startReactApplication(reactInstanceManager, "RNLibrary", initialProperties)
         setContentView(reactRootView)
     }
 
