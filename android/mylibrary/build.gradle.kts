@@ -51,18 +51,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
 
-
-val yarnInstallCommand by tasks.registering(Exec::class) {
-    commandLine("yarn", "install")
-    workingDir = file("..") // Set the working directory to the parent directory
-}
-
-//// Create a wrapper task to run yarnInstallCommand and publishingPublicationsRelease
-//val publishLibrary by tasks.registering {
-//    dependsOn(yarnInstallCommand)
-//    dependsOn("publishingPublicationsRelease")
-//}
-
 publishing {
     publications {
         register<MavenPublication>("release") {
@@ -74,10 +62,6 @@ publishing {
                 from(components["release"])
             }
         }
-    }
-}
 
-// Use the preBuild lifecycle task to set up the task dependency
-tasks.named("preBuild") {
-    dependsOn(yarnInstallCommand)
+    }
 }
